@@ -7,13 +7,23 @@
 h1 {text-align: center;}
 p {text-align: center;}
 div {text-align: center;}
-body {
-  background-image: url('images/TCRS.png');
+.parallax {
+  /* The image used */
+  background-image: url("img_parallax.jpg");
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
 </head>
 <body>
-
+<div class="parallax"></div>
 
 
 <h1>hi</h1>
