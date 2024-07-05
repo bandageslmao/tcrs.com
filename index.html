@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh; /* Use vh to ensure it takes the full viewport height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -49,14 +49,6 @@
             padding: 20px; /* Add some padding for better readability */
             display: inline-block; /* Ensures the background only covers the text */
         }
-        .center-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
     </style>
 </head>
 <body>
@@ -74,10 +66,10 @@
         </audio>
     </div>
 
-    <div class="center-container">
-        <div class="text-background">
-            <h1>Welcome to TCRS Wiki!</h1>
-        </div>
+
+    <div class="text-background">
+        <h1>Welcome to TCRS Wiki!</h1>
+        <p>fireinthehole.</p>
     </div>
 
     <script>
