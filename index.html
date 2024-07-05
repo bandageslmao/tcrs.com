@@ -1,22 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <title>tcrs wiki</title>
-      <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-<style>
-h1 {text-align: center;}
-p {text-align: center;}
-div {text-align: center;}
-body {
-  background-image: url('images/TCRS.png');
-}
-</style>
+    <title>tcrswiki</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        h1, p, div { text-align: center; }
+        body {
+            background-image: url('images/TCRS.png');
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        #splash-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 1);
+            z-index: 10;
+            text-align: center;
+        }
+        #splash-screen button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        #audio-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: none;
+        }
+        audio {
+            display: none; /* Hide the audio element */
+        }
+    </style>
 </head>
 <body>
+    <div id="splash-screen">
+        <div>
+            <p>Hey, Before you get to it, would you like some music?</p>
+            <button onclick="enableAutoplay()">Enable Autoplay</button>
+            <button onclick="skipAutoplay()">Skip Autoplay</button>
+        </div>
+    </div>
+    <div id="audio-container">
+        <audio id="myAudio">
+            <source src="music/athletic.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
+    <script>
+        function enableAutoplay() {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.getElementById('audio-container').style.display = 'block';
+            var audio = document.getElementById('myAudio');
+            var playPromise = audio.play();
 
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('Audio is playing.');
+                }).catch(error => {
+                    console.log('Failed to play audio:', error);
+                });
+            }
+        }
 
-<h1>hi</h1>
-
+        function skipAutoplay() {
+            document.getElementById('splash-screen').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
