@@ -14,6 +14,7 @@
             justify-content: center;
             align-items: center;
             color: #fff;
+            text-align: center;
         }
         #splash-screen {
             position: absolute;
@@ -46,10 +47,15 @@
         .text-background {
             background-color: rgba(0, 0, 0, 0.7); /* Adjust the background color and opacity as needed */
             padding: 20px; /* Add some padding for better readability */
+            display: inline-block; /* Ensures the background only covers the text */
+        }
+        .center-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center; /* Center the text inside the div */
+            height: 100%;
+            width: 100%;
+            position: absolute;
         }
     </style>
 </head>
@@ -68,9 +74,8 @@
         </audio>
     </div>
 
-    <!-- Example of text with a background color -->
-    <div class="text-background">
-        <div>
+    <div class="center-container">
+        <div class="text-background">
             <h1>Welcome to TCRS Wiki!</h1>
         </div>
     </div>
