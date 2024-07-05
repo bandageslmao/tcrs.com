@@ -4,7 +4,6 @@
     <title>tcrswiki</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <style>
-        h1, p, div { text-align: center; }
         body {
             background-image: url('images/TCRS.png');
             margin: 0;
@@ -46,8 +45,11 @@
         }
         .text-background {
             background-color: rgba(0, 0, 0, 0.7); /* Adjust the background color and opacity as needed */
-            padding: 10px; /* Add some padding for better readability */
-            display: inline-block; /* Ensures the background only covers the text */
+            padding: 20px; /* Add some padding for better readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center; /* Center the text inside the div */
         }
     </style>
 </head>
@@ -68,7 +70,9 @@
 
     <!-- Example of text with a background color -->
     <div class="text-background">
-        <h1>Welcome to TCRS Wiki!</h1>
+        <div>
+            <h1>Welcome to TCRS Wiki!</h1>
+        </div>
     </div>
 
     <script>
