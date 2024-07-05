@@ -12,7 +12,7 @@
             height: 100vh; /* Use vh to ensure it takes the full viewport height */
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Align items at the start vertically */
             color: #fff;
             text-align: center;
         }
@@ -48,6 +48,7 @@
             background-color: rgba(0, 0, 0, 0.7); /* Adjust the background color and opacity as needed */
             padding: 20px; /* Add some padding for better readability */
             display: inline-block; /* Ensures the background only covers the text */
+            margin-top: 20px; /* Add margin to push it away from the top */
         }
     </style>
 </head>
@@ -66,10 +67,10 @@
         </audio>
     </div>
 
-
+    <!-- Centered container for text with background color -->
     <div class="text-background">
         <h1>Welcome to TCRS Wiki!</h1>
-        <p>fireinthehole.</p>
+        <p>This is an example of text with a background color.</p>
     </div>
 
     <script>
