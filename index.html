@@ -122,14 +122,21 @@
         window.onload = function() {
             var autoplayPreference = getCookie('autoplay');
             if (autoplayPreference === 'enabled') {
+                var audio = document.getElementById('myAudio');
                 document.getElementById('splash-screen').style.display = 'none';
                 document.getElementById('audio-container').style.display = 'block';
-                var audio = document.getElementById('myAudio');
-                audio.play().then(() => {
-                    console.log('Audio is playing.');
-                }).catch(error => {
-                    console.log('Failed to play audio:', error);
-                });
+                var playPromise = audio.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('Audio is playing.');
+                    }).catch(error => {
+                        console.log('Failed to play audio:', error);
+                        // Show a message to the user if autoplay is blocked
+                        alert("Autoplay was blocked. Please click 'Enable Autoplay' to start the music.");
+                        document.getElementById('splash-screen').style.display = 'flex';
+                    });
+                }
             } else {
                 document.getElementById('splash-screen').style.display = 'flex';
             }
