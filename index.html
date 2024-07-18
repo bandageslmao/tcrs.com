@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>tcrswiki</title>
+    <title>tcrs.com</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <style>
         body {
@@ -75,13 +75,14 @@
 
     <div class="container">
         <div class="text-background">
-            <h1>Welcome to TCRS Wiki!</h1>
-            <p>fire</p>
+            <h1>Welcome to TCRS.com!</h1>
+            <p></p>
         </div>
     </div>
 
     <script>
         function enableAutoplay() {
+            localStorage.setItem('autoplay', 'enabled');
             document.getElementById('splash-screen').style.display = 'none';
             document.getElementById('audio-container').style.display = 'block';
             var audio = document.getElementById('myAudio');
@@ -97,7 +98,20 @@
         }
 
         function skipAutoplay() {
+            localStorage.setItem('autoplay', 'skipped');
             document.getElementById('splash-screen').style.display = 'none';
+        }
+
+        window.onload = function() {
+            var autoplayPreference = localStorage.getItem('autoplay');
+            if (autoplayPreference === 'enabled') {
+                document.getElementById('splash-screen').style.display = 'none';
+                document.getElementById('audio-container').style.display = 'block';
+                var audio = document.getElementById('myAudio');
+                audio.play();
+            } else {
+                document.getElementById('splash-screen').style.display = 'flex';
+            }
         }
     </script>
 </body>
