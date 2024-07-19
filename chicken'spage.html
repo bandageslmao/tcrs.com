@@ -73,42 +73,83 @@
         </audio>
     </div>
 
-    <div class="container">
-        <div class="text-background">
-            <h1>kfj</h1>
-            <p></p>
-        </div>
+<div class="container">
+    <div class="text-background">
+        <style>
+            .inline-link {
+                display: inline-block;
+                margin-right: 10px;
+            }
+        </style>
+        <h2 class="inline-link"><a href="index.html">Home</a></h2>
+        <h2 class="inline-link"><a href="Achievements.html">Achievements</a></h2>
+        <h2 class="inline-link"><a href="Meet The Gang.html">Characters</a></h2>
+        <h2 class="inline-link"><a href="gamespage.html">Games</a></h2>
+        <h2 class="inline-link"><a href="Socials.html">Socials</a></h2>
     </div>
+</div>
+
+<h1>Chicken</h1>
+
+
 
     <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
         function enableAutoplay() {
-            localStorage.setItem('autoplay', 'enabled');
+            setCookie('autoplay', 'enabled', 7); // Set cookie for 7 days
             document.getElementById('splash-screen').style.display = 'none';
             document.getElementById('audio-container').style.display = 'block';
             var audio = document.getElementById('myAudio');
-            var playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log('Audio is playing.');
-                }).catch(error => {
-                    console.log('Failed to play audio:', error);
-                });
-            }
+            audio.play().then(() => {
+                console.log('Audio is playing.');
+            }).catch(error => {
+                console.log('Failed to play audio:', error);
+            });
         }
 
         function skipAutoplay() {
-            localStorage.setItem('autoplay', 'skipped');
+            setCookie('autoplay', 'skipped', 7); // Set cookie for 7 days
             document.getElementById('splash-screen').style.display = 'none';
         }
 
         window.onload = function() {
-            var autoplayPreference = localStorage.getItem('autoplay');
+            var autoplayPreference = getCookie('autoplay');
             if (autoplayPreference === 'enabled') {
+                var audio = document.getElementById('myAudio');
                 document.getElementById('splash-screen').style.display = 'none';
                 document.getElementById('audio-container').style.display = 'block';
-                var audio = document.getElementById('myAudio');
-                audio.play();
+                var playPromise = audio.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('Audio is playing.');
+                    }).catch(error => {
+                        console.log('Failed to play audio:', error);
+                        // Show a message to the user if autoplay is blocked
+                        alert("Autoplay was blocked.");
+                        document.getElementById('splash-screen').style.display = 'flex';
+                    });
+                }
             } else {
                 document.getElementById('splash-screen').style.display = 'flex';
             }
