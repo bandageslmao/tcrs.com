@@ -96,44 +96,6 @@
     </div>
 </div>
 
-var achievementSound = new Audio('music/achievement.mp3');
-
-// Define your achievements as before
-const achievements = [
-    { id: 1, name: "First Visit", description: "Welcome to the site!" },
-    { id: 2, name: "Explorer", description: "Visited 5 different pages." },
-];
-
-// Function to award an achievement
-function awardAchievement(achievementId) {
-    const achievement = achievements.find(a => a.id === achievementId);
-    if (achievement && !userAchievements.includes(achievementId)) {
-        userAchievements.push(achievementId);
-        localStorage.setItem('userAchievements', JSON.stringify(userAchievements));
-        displayAchievement(achievement);
-        achievementSound.play(); // Play sound on achievement unlock
-    }
-}
-
-// Example trigger: Award achievement for visiting a specific page
-window.onload = function() {
-    var autoplayPreference = getCookie('autoplay');
-    if (autoplayPreference === 'enabled') {
-        // Existing audio autoplay logic...
-
-        // Check for page visits and award achievement
-        let pageVisits = JSON.parse(localStorage.getItem('pageVisits')) || 0;
-        pageVisits++;
-        localStorage.setItem('pageVisits', JSON.stringify(pageVisits));
-
-        // Trigger achievement if they visit 5 pages
-        if (pageVisits === 5) {
-            awardAchievement(2); // Award "Explorer" achievement
-        }
-    }
-};
-
-
 
     <script>
         function setCookie(name, value, days) {
