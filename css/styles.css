@@ -1,0 +1,18 @@
+p {
+    color: darkblue;
+}
+
+body {
+    background-image: url("/images/TCRS.png");
+  }
+
+  header { 
+    background-color: #333333; /* Change this to your desired color */ 
+    color: white;              /* Text color */ 
+    padding: 20px;
+    margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+    text-align: center;       /* Center the text */ 
+} 
