@@ -1,9 +1,10 @@
-// autoplay.js
 (function() {
   // Function to check autoplay permission for audio elements
   function checkAutoplay(audioElement) {
+    // Attempt to play the muted audio element (autoplay should work when muted)
+    audioElement.muted = true;
     audioElement.play().then(() => {
-      console.log('Autoplay is allowed');
+      console.log('Autoplay is allowed (muted initially)');
     }).catch((error) => {
       console.log('Autoplay is blocked, asking for permission');
       askForAutoplayPermission(audioElement);
@@ -18,7 +19,9 @@
       alert("Autoplay permission granted! Reloading audio...");
       // Set the autoplay attribute and reload the audio
       audioElement.setAttribute('autoplay', 'true');
+      audioElement.muted = false; // Unmute the audio after user interaction
       audioElement.load(); // Reload the audio with autoplay enabled
+      audioElement.play(); // Try to play it again
     } else {
       alert("Autoplay permission denied.");
     }
@@ -37,4 +40,16 @@
   document.addEventListener('DOMContentLoaded', function() {
     initializeAutoplayForAudios();
   });
+
+  // Optional: Add user interaction to unmute audio after page load
+  document.addEventListener('click', function() {
+    const audios = document.querySelectorAll('audio');
+    audios.forEach((audio) => {
+      if (audio.muted) {
+        audio.muted = false; // Unmute after user interaction
+        console.log("Audio unmuted after user interaction");
+      }
+    });
+  });
+
 })();
