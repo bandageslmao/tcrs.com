@@ -11,19 +11,29 @@
         html {
   cursor: url("Cursors/Normal\ Select.cur"), default;
 }
+body{
+    background-image: url("Images/MAINBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
     </style>
+    <script>
+        document.getElementById("BGM").volume = 0.2;
+    </script>
 </head>
 <body>
-    <audio autoplay loop><source src="BGMS/menutheme.mp3" type="audio/mp3"></audio>
-    <window><p>TCRS.COM
-        <br> <a href="index.html">Home</a>
-        <br> <a href="Pages/Secrets/404.html">Credits</a>
-    </p></window>
+    <audio autoplay loop id="BGM"><source src="BGMS/menutheme.mp3" type="audio/mp3"></audio>
     <center>
-    <button data-inline="true"><img src="Images/GamesPlaceholder.png"></button>
-    <button data-inline="true"><img src="Images/WikiPlaceholder.png"></button>
-    <button data-inline="true"><img src="Images/SocialsPlaceholder.png"></button>
-    <button data-inline="true">Achivements</button>
+    <div id="header">
+        <h1>TCRS.COM</h1>
+    </div>
+    </center>
+    <a href="index.html">Home</a> <a href="Pages/credits.html">Credits</a>
+    <center>
+    <button data-inline="true"><a href="Pages/games.html"><img src="Images/GamesPlaceholder.png"></a></button>
+    <button data-inline="true"><a href="Pages/wiki.html"><img src="Images/WikiPlaceholder.png"></a></button>
+    <button data-inline="true"><a href="Pages/socials.html"><img src="Images/SocialsPlaceholder.png"></a></button>
+    <button data-inline="true"><a href="Pages/achievements.html"><img src="Images/AchievementsPlaceholder.png"></a></button>
     </center>
 </body>
 </html>
