@@ -4,25 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="javascript/sounds.js" defer></script>
     <link rel="stylesheet" href="css/main.css">
+    <script src="javascript/sounds.js"></script>
 </head>
 <body>
-    <div id="mainscreen" class="main">
-        <a id="btn1" href="#chars"><h1>Felons</h1></a>
-        <a href="#victims"><h1>Autopsies</h1></a>
+    <div id="main" style="width: 100vw; height: 100vh; background-color: black; position: absolute; top: 0; left: 0;">
+        <div id="selection" class="selection">
+            <a id="area1" href="#chars"><h1>Felons</h1></a>
+        </div>
+        <div id="chars">
+
+        </div>
     </div>
-    <div id="chars" class="info" hidden>
-        <h1 class="name"></h1>
-    </div>
+    <script src="javascript/dir.js"></script>
 </body>
-<script>
-    const infodiv = document.getElementById('Chars')
-    const selectdiv = document.getElementById('mainscreen')
-    const clickno1 = document.getElementById('btn1')
-    clickno1.addEventListener('click',function(){
-        infodiv.removeAttribute('hidden')
-        selectdiv.setAttribute('hidden',true)
-    })
-</script>
 </html>

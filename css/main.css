@@ -2,27 +2,10 @@
     font-family: terminal;
     src: url("../assets/Modeseven-L3n5.ttf");
 }
-.main{
-    position: absolute;
-    padding-left: 5vw;
-    width: 5vw;
-    display: flex;
-    flex-direction: column;
-}
-.main a{
+body a{
     color: green;
+}
+.selection{
+    width: 5%;
     font-family: terminal;
-}
-body{
-    background-color: black;
-}
-.info{
-    position: absolute;
-    width: 100vw;
-    height: 100vh
-}
-.info .name{
-    color: green;
-    font-family: terminal;
-    top: 0;
 }
