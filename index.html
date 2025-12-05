@@ -3,40 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCRS.com</title>
-    <style>
-        a, button, .clickable {
-  cursor: url("Cursors/Link\ Select.cur"), pointer;
-}
-        html {
-  cursor: url("Cursors/Normal\ Select.cur"), default;
-}
-body{
-    background-image: url("Images/MAINBG.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-button{
-    margin: 15px;
-}
-    </style>
-    <script>
-        document.getElementById("BGM").volume = 0.2;
-    </script>
+    <title>Document</title>
+    <script src="javascript/sounds.js" defer></script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <audio autoplay loop id="BGM"><source src="BGMS/menutheme.mp3" type="audio/mp3"></audio>
-    <center>
-    <div id="header">
-        <h1>TCRS.COM</h1>
+    <div id="mainscreen" class="main">
+        <a id="btn1" href="#chars"><h1>Felons</h1></a>
+        <a href="#victims"><h1>Autopsies</h1></a>
     </div>
-    </center>
-    <a href="/index.html">Homepage</a> <a href="/Pages/credits.html">Credits Section</a>
-    <center>
-    <button data-inline="true"><a href="Pages/games.html"><img src="Images/GamesPlaceholder.png"></a></button>
-    <button data-inline="true"><a href="Pages/wiki.html"><img src="Images/WikiPlaceholder.png"></a></button>
-    <button data-inline="true"><a href="Pages/socials.html"><img src="Images/SocialsPlaceholder.png"></a></button>
-    <button data-inline="true"><a href="Pages/achievements.html"><img src="Images/AchievementsPlaceholder.png"></a></button>
-    </center>
+    <div id="chars" class="info" hidden>
+        <h1 class="name"></h1>
+    </div>
 </body>
+<script>
+    const infodiv = document.getElementById('Chars')
+    const selectdiv = document.getElementById('mainscreen')
+    const clickno1 = document.getElementById('btn1')
+    clickno1.addEventListener('click',function(){
+        infodiv.removeAttribute('hidden')
+        selectdiv.setAttribute('hidden',true)
+    })
+</script>
 </html>
